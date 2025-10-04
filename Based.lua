@@ -1,4 +1,4 @@
-instrument {overlay = true, name = 'CoPilot-1', short_name = 'BOTTPA'}
+instrument {overlay = true, name = 'BASED', short_name = 'BOTTPA'}
 
 input_group {
     "UP COLOR",
