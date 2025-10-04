@@ -57,6 +57,12 @@ marubozu_call = ((open[1] > close[1]) and
                     (abs(close[1] - open[1])) < ((high[1] - low[1]) * 0.95)) and
                     open[1] > sma(close[1], 20) and close[1] < sma(close[1], 20) and
                     doji == false and real_ > 20 and ema_call
+marubozu_put = ((open[1] < close[1]) and
+                    (close[1] < high[1] - ((high[1] - low[1]) * 0.02)) and
+                    (open[1] < high[1] + ((high[1] - low[1]) * 0.02)) and
+                    (abs(close[1] - open[1])) < ((high[1] - low[1]) * 0.95)) and
+                    open[1] < sma(close[1], 20) and close[1] > sma(close[1], 20) and
+                    doji == false and real_ > 20 and ema_put
 
 
 shootingstar3_put = ((open[1] < close[1]) or (open[1] > close[1])) and open[1] <
