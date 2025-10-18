@@ -42,16 +42,34 @@ doji = (abs(open[1] - close[1]) <= (high[1] - low[1]) * 0.2)
 bull = open[6] > close[6] and open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and high[3] < close[1] and high[2] < close[1]
 ber = open[6] < close[6] and open[5] > close[5] and open[4] > close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1] and low[3] > close[1] and low[2] > close[1]
 
+
+
  plot_shape(bull , 'huge_candle1_BUY', shape_style.arrowup,
-                                 shape_size.large, 'transparent', shape_location.belowbar, 0, "HC1",
+                                 shape_size.large, 'transparent', shape_location.belowbar, 0, "RC",
                                  call_color)
 plot_shape(ber, 'huge_candle1_SELL', shape_style.arrowdown,
-                                 shape_size.large, 'transparent', shape_location.abovebar, 0, "HC1",
+                                 shape_size.large, 'transparent', shape_location.abovebar, 0, "RC",
                                  put_color)
- tren = ema_call or ema_put                               
- plot_shape(bull and tren , 'huge_candle1_BUYX', shape_style.arrowup,
-                                 shape_size.large, call_color, shape_location.belowbar, 0, "HC1",
+
+
+
+bullX = open[7] > close[7] and open[6] < close[6] and open[5] < close[5] and open[4] < close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1]  and high[3] < close[2] and low[2] < close[1] and high[4] < close[2]
+berX = open[7] < close[7] and open[6] > close[6] and open[5] > close[5] and open[4] > close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and low[3] > close[2] and high[2] > close[1] and low[4] > close[2]
+
+ plot_shape(bullX, 'huge_candle1_BUYX', shape_style.arrowup,
+                                 shape_size.large, call_color, shape_location.belowbar, 0, "RC",
                                  'transparent')
-plot_shape(ber and tren, 'huge_candle1_SELLX', shape_style.arrowdown,
-                                 shape_size.large, put_color, shape_location.abovebar, 0, "HC1", 'transparent')
-                          
+plot_shape(berX, 'huge_candle1_SELLX', shape_style.arrowdown,
+                                 shape_size.large, put_color, shape_location.abovebar, 0, "RC", 'transparent')
+
+
+
+berEng = open[6] < close[6] and open[5] < close[5] and open[4] < close[4] and open[3] > close[3] and open[2] > close[2] and open[1] < close[1] and low[4] > close[3] and open[3] > close[1]
+
+bullEng = open[6] > close[6] and open[5] > close[5] and open[4] > close[4] and open[3] < close[3] and open[2] < close[2] and open[1] > close[1] and high[4] < close[3] and open[3] < close[1]
+
+plot_shape(bullEng, 'huge_BUYX', shape_style.arrowup,
+                                 shape_size.large, call_color, shape_location.belowbar, 0, "X",
+                                 call_color)
+plot_shape(berEng, 'huge_SELLX', shape_style.arrowdown,
+                                 shape_size.large, put_color, shape_location.abovebar, 0, "X", put_color)
