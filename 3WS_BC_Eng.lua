@@ -69,7 +69,7 @@ berEng = open[6] < close[6] and open[5] < close[5] and open[4] < close[4] and op
 bullEng = open[6] > close[6] and open[5] > close[5] and open[4] > close[4] and open[3] < close[3] and open[2] < close[2] and open[1] > close[1] and high[4] < close[3] and open[3] < close[1]
 
 plot_shape(bullEng, 'huge_BUYX', shape_style.arrowup,
-                                 shape_size.large, call_color, shape_location.belowbar, 0, "X",
+                                 shape_size.large, call_color, shape_location.belowbar, 0, "ENGX",
                                  call_color)
 plot_shape(berEng, 'huge_SELLX', shape_style.arrowdown,
-                                 shape_size.large, put_color, shape_location.abovebar, 0, "X", put_color)
+                                 shape_size.large, put_color, shape_location.abovebar, 0, "ENGX", put_color)
