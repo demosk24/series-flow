@@ -39,12 +39,19 @@ doji = (abs(open[1] - close[1]) <= (high[1] - low[1]) * 0.2)
                                                
 
 
-bull = open[6] > close[6] and open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and open[2] < close[1]
-ber = open[6] < close[6] and open[5] > close[5] and open[4] > close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1] and open[2] > close[1]
+bull = open[6] > close[6] and open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and high[3] < close[1] and high[2] < close[1]
+ber = open[6] < close[6] and open[5] > close[5] and open[4] > close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1] and low[3] > close[1] and low[2] > close[1]
 
- plot_shape(bull, 'huge_candle1_BUY', shape_style.arrowup,
+ plot_shape(bull , 'huge_candle1_BUY', shape_style.arrowup,
                                  shape_size.large, 'transparent', shape_location.belowbar, 0, "HC1",
                                  call_color)
 plot_shape(ber, 'huge_candle1_SELL', shape_style.arrowdown,
                                  shape_size.large, 'transparent', shape_location.abovebar, 0, "HC1",
                                  put_color)
+ tren = ema_call or ema_put                               
+ plot_shape(bull and tren , 'huge_candle1_BUYX', shape_style.arrowup,
+                                 shape_size.large, call_color, shape_location.belowbar, 0, "HC1",
+                                 'transparent')
+plot_shape(ber and tren, 'huge_candle1_SELLX', shape_style.arrowdown,
+                                 shape_size.large, put_color, shape_location.abovebar, 0, "HC1", 'transparent')
+                          
