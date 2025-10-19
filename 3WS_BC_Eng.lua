@@ -35,12 +35,12 @@ doji = (abs(open[1] - close[1]) <= (high[1] - low[1]) * 0.2)
 
 
 
-bull_1 = open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and low[3] < close[2] 
-ber_1 = open[5] > close[5] and open[4] > close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1] and high[3] < close[2] 
+bull_1 = open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and low[3] <= close[2] 
+ber_1 = open[5] > close[5] and open[4] > close[4] and open[3] > close[3] and open[2] < close[2] and open[1] > close[1] and high[3] >= close[2]
            
                                                
-bull_2 = open[6] < close[6] and open[5] < close[5] and open[4] < close[4] and open[3] > close[3] and open[2] > close[2] and open[1] < close[1] and low[4] < close[2] 
-ber_2 = open[6] > close[6] and open[5] > close[5] and open[4] > close[4] and open[3] < close[3] and open[2] < close[2] and open[1] > close[1] and high[4] < close[2] 
+bull_2 = open[6] < close[6] and open[5] < close[5] and open[4] < close[4] and open[3] > close[3] and open[2] > close[2] and open[1] < close[1] and low[4] <= close[2] 
+ber_2 = open[6] > close[6] and open[5] > close[5] and open[4] > close[4] and open[3] < close[3] and open[2] < close[2] and open[1] > close[1] and high[4] >= close[2] 
 
 plot_shape(bull_1 , 'S_1', shape_style.arrowup, shape_size.large, 'transparent', shape_location.belowbar, 0, "S_1", call_color)
 plot_shape(ber_1, 'xS_1', shape_style.arrowdown, shape_size.large, 'transparent', shape_location.abovebar, 0, "S_1", put_color)
