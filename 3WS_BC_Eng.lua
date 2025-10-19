@@ -32,7 +32,20 @@ ema_call = close[1] > ema20 and ema20 > ema50 and ema50 > ema100 and ema100 >
                ema200
 
 doji = (abs(open[1] - close[1]) <= (high[1] - low[1]) * 0.2)
+--eurusd
+upper3_ = abs(high[3] - max(open[3], close[3]))
+upper2_ = abs(high[2] - max(open[2], close[2]))
+upper1_ = abs(high[1] - max(open[1], close[1]))
 
+lower3_ = abs(min(open[3], close[3]) - low[3])
+lower2_ = abs(min(open[2], close[2]) - low[2])
+lower1_ = abs(min(open[1], close[1]) - low[1])
+
+real3_ = abs(close[3] - open[3])
+real2_ = abs(close[2] - open[2])
+real1_ = abs(close[1] - open[1])
+
+eurusd = real3_ > lower3_ and real3_ > upper3_ and real2_ > lower2_ and real2_ > upper2_ and real1_ > lower1_ and real1_ > upper1_ 
 
 
 bull_1 = open[5] < close[5] and open[4] < close[4] and open[3] < close[3] and open[2] > close[2] and open[1] < close[1] and low[3] <= close[2] and close[5] < close[2]
